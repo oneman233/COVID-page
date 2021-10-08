@@ -10,13 +10,13 @@
 * 丁香园的[新冠疫情 API](https://lab.isaaclin.cn/nCoV/)
   * 按天更新的感染者数据
   * 国内新冠疫情相关新闻
+  * 新冠疫情相关谣言
 * 字节跳动的[西瓜视频播放器](https://v2.h5player.bytedance.com/)
 * 采用 [echarts](https://echarts.apache.org/zh/index.html) 绘制中国地图
+* 采用 semantic scholar 的 [Google Scholar API](https://www.semanticscholar.org/product/api) 获取新冠相关论文
 
 ## TODOs
 
 - [ ] 尝试将丁香园的“新冠谣言”引入页面
-- [ ] serpApi 的 [Google Scholar API](https://serpapi.com/google-scholar-api) 使用
 - [ ] Prevention 页面的分隔符设计
 - [ ] 回到顶部的设计
-- [ ] 视频播放框的非对称布局设计

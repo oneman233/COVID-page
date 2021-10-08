@@ -1,7 +1,3 @@
-<!-- 回到顶部 -->
-<!-- 英文论文 -->
-<!-- 图片组合 -->
-
 <head>
     <title>Everything About COVID19</title>
 
@@ -57,9 +53,9 @@
                 Prevention
             </el-menu-item>
 
-            <el-menu-item index="3" style="color: #409EFF;font-size: large;">
+            <!-- <el-menu-item index="3" style="color: #409EFF;font-size: large;">
                 News
-            </el-menu-item>
+            </el-menu-item> -->
 
             <el-menu-item index="4" style="color: #409EFF;font-size: large;">
                 Papers
@@ -114,8 +110,7 @@
                     <p style="font-size: x-large;
                     font-family:'Times New Roman', Times, serif;
                     text-align: center;
-                    font-weight: bold;
-                    color: #909399">
+                    font-weight: bold;">
                         COVID-19 Prevention Guide from WHO
                     </p>
 
@@ -165,13 +160,13 @@
         </el-row>
 
         <!-- 新冠新闻 -->
-        <el-row>
+
+        <!-- <el-row>
           <el-col :span="12" :offset="6">
             <transition name="el-fade-in-linear">
                 <div v-show="show == 3">
 
-                    <el-collapse @change="newsChange" accordion>
-                        <!-- 加入滚动条，同时固定页面高度 -->
+                    <el-collapse @change="newsChange">
                         <el-scrollbar height="1000px">
                             <el-collapse-item v-for="(n, id) in news" :name="id">
                             
@@ -196,15 +191,64 @@
                 </div>
             </transition>
           </el-col>
-        </el-row>
+        </el-row> -->
 
         <!-- 新冠科研论文 -->
 
+        <el-row>
+            <el-col :span="16" :offset="4">
+              <transition name="el-fade-in-linear">
+                  <div v-show="show == 4">
+  
+                      <!-- 只允许打开一个的话就设置 accordion 属性 -->
+                      <el-collapse @change="paperChange">
+                          <!-- 加入滚动条，同时固定页面高度 -->
+                          <el-scrollbar height="1000px">
+                              <el-collapse-item v-for="(n, id) in papers" :name="id">
+
+                                    <!-- 标题部分 -->
+                                    <template #title>
+                                        <a v-if="n.title.length < 140" style="font-size: medium;font-weight: bold;">
+                                            {{ id+1 }}: {{ n.title }}
+                                        </a>
+                                        <a v-else style="font-size: medium;font-weight: bold;">
+                                            {{ id+1 }}: {{ n.title.substring(0,140) }}...
+                                        </a>
+                                    </template>
+
+                                    <!-- 内容块 -->
+                                    <div style="white-space: pre-wrap;">
+                                        <p style="font-weight: bold;">
+                                            Written By {{ n.authors[0].name }} etc.
+                                        </p>
+                                        <div v-if="n.abstract != null" style="color: #909399;">
+                                            {{ n.abstract }}
+                                        </div>
+                                        <div v-else style="color: #909399;">
+                                            NO ABSTRACT
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 论文链接 -->
+                                    <el-link type="primary" :href="getPaperURL(n.paperId)">
+                                        Original Link
+                                    </el-link>
+                              
+                              </el-collapse-item>
+                          </el-scrollbar>
+                      </el-collapse>
+  
+                  </div>
+              </transition>
+            </el-col>
+          </el-row>
+
         <!-- 新冠视频 -->
         <transition name="el-fade-in-linear">
-            <div v-show="show == 5" id="video">
-                
-            </div>
+            <el-row>
+              <el-col :span="8" :offset="6">
+                  <div v-show="show == 5" id="video"></div>
+              </el-col>
         </transition>
 
         <!-- 关于我们 -->
@@ -231,11 +275,11 @@
     const APP = {
         data() {
             return {
-                info: '',
                 seulogo: 'C:\\Users\\oneman233\\Desktop\\COVID19\\seulogo.svg',
-                show: 1,
-                date: new Date().toString().slice(0, -18),
-                news: {},
+                show: 1, // 当前显示哪个页面
+                date: new Date().toString().slice(0, -18), // 当前时间
+                news: {},   // 新冠相关新闻,
+                papers: {}, // 新冠论文
             }
         },
         mounted() {
@@ -244,10 +288,21 @@
             }, 1000);
         },
         created() {
-            axios.get('https://lab.isaaclin.cn/nCoV/api/news')
+            // 获取新冠新闻
+            // axios.get('https://lab.isaaclin.cn/nCoV/api/news')
+            // .then(res => {
+            //     console.log(res.data.results)
+            //     this.news = res.data.results
+            // })
+            // .catch(err => {
+            //     console.error(err); 
+            // })
+
+            // 获取新冠论文
+            axios.get("https://api.semanticscholar.org/graph/v1/paper/search?query=COVID+prevention&limit=15&fields=title,authors,abstract")
             .then(res => {
-                console.log(res.data.results)
-                this.news = res.data.results
+                console.log(res.data.data)
+                this.papers = res.data.data
             })
             .catch(err => {
                 console.error(err); 
@@ -258,9 +313,15 @@
                 this.show = KeyPath
                 console.log('选中了页面：' + KeyPath)
             },
-            newsChange(val) {
-                console.log('新闻：' + val);
-            }
+            // newsChange(val) {
+            //     console.log('新闻：' + val);
+            // },
+            paperChange(val) {
+                console.log('论文：' + val);
+            },
+            getPaperURL(val) {
+                return "https://www.semanticscholar.org/paper/" + val;
+            },
         },
     };
 
@@ -270,7 +331,9 @@
 
     let player = new Player({
         id: 'video',
-        url: 'C:\\Users\\oneman233\\Desktop\\COVID19\\Never Gonna Give You Up.mp4'
+        url: 'C:\\Users\\oneman233\\Desktop\\COVID19\\Infection Prevention for COVID19 An Illustrated Summary.mp4',
+        width: 1000,
+        height: 800,
     });
 
     var mydata = [  
