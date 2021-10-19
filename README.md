@@ -14,8 +14,3 @@
 * 字节跳动的[西瓜视频播放器](https://v2.h5player.bytedance.com/)
 * 采用 [echarts](https://echarts.apache.org/zh/index.html) 绘制中国地图
 * 采用 semantic scholar 的 [Google Scholar API](https://www.semanticscholar.org/product/api) 获取新冠相关论文
-
-## TODOs
-
-- [ ] 页面添加标题
-- [ ] 关闭全部论文
