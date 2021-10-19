@@ -69,7 +69,7 @@
                 About
             </el-menu-item>
 
-            <el-link type="info" disabled="true" icon="el-icon-time"
+            <el-link type="info" disabled="true"
             style="margin-left: auto;margin-right: 20px;">{{ date }}</el-link>
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -107,21 +107,21 @@
             <transition name="el-fade-in-linear">
                 <div v-show='show == 2'>
 
-                    <p style="font-size: x-large;
+                    <p style="font-size: 20px;
                     font-family:'Times New Roman', Times, serif;
                     text-align: center;
                     font-weight: bold;">
-                        COVID-19 Prevention Guide from WHO
+                        COVID-19 Prevention Guide
                     </p>
 
-                    <!-- 二选一 -->
-
-                    <el-divider>
+                    <!-- <el-divider>
                         <i class="el-icon-star-on"></i>
-                    </el-divider>
+                    </el-divider> -->
 
                     <el-divider content-position="right">
-                        from WHO
+                        <a style="color: #909399;">
+                            Designed & Produced by us
+                        </a>
                     </el-divider>
 
                     <el-carousel height="726" type="card"
@@ -199,19 +199,36 @@
             <el-col :span="16" :offset="4">
               <transition name="el-fade-in-linear">
                   <div v-show="show == 4">
+
+                    <p style="font-size: 20px;
+                    font-family:'Times New Roman', Times, serif;
+                    text-align: center;
+                    font-weight: bold;">
+                        Papers Related To COVID-19
+                    </p>
+
+                    <div style=
+                    "width: 1300;height:760;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.12),0 0 6px rgba(0,0,0,0.04);
+                    border-radius: 20px;
+                    margin: auto;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;">
   
                       <!-- 只允许打开一个的话就设置 accordion 属性 -->
-                      <el-collapse @change="paperChange">
+                      <el-collapse @change="paperChange" accordion>
                           <!-- 加入滚动条，同时固定页面高度 -->
                           <el-scrollbar height="1000px">
                               <el-collapse-item v-for="(n, id) in papers" :name="id">
 
                                     <!-- 标题部分 -->
                                     <template #title>
-                                        <a v-if="n.title.length < 140" style="font-size: medium;font-weight: bold;">
+                                        <a v-if="n.title.length < 140" style="font-size: medium;font-weight: bold;color: #606266;">
                                             {{ id+1 }}: {{ n.title }}
                                         </a>
-                                        <a v-else style="font-size: medium;font-weight: bold;">
+                                        <a v-else style="font-size: medium;font-weight: bold;color: #606266;">
                                             {{ id+1 }}: {{ n.title.substring(0,140) }}...
                                         </a>
                                     </template>
@@ -237,6 +254,8 @@
                               </el-collapse-item>
                           </el-scrollbar>
                       </el-collapse>
+
+                    </div>
   
                   </div>
               </transition>
@@ -255,15 +274,74 @@
 
         <transition name="el-fade-in-linear">
             <div v-show="show == 6">
-                <p style="text-align: center;">
-                    What is COVID-19
-                </p>
-                <p style="text-align: center;">
-                    Who are we
-                </p>
-                <p style="text-align: center;">
-                    What is our aim
-                </p>
+
+                <el-row>
+                  <el-col :offset="6">
+                      <a style="color: #F56C6C;font-weight: bold; font-size: large;">
+                        Who are we
+                      </a>
+                  </el-col>
+                </el-row>
+
+                <el-row>
+                    <el-col :offset="6">
+                        <p>
+                            We are a team from Southeast University,
+                            hoping to make small contributions to the future of humanity.
+        
+                            <!-- 成员信息 -->
+        
+                        </p>
+                    </el-col>
+                </el-row>
+
+                <el-row>
+                    <el-col :offset="6">
+                        <a style="color: #F56C6C;font-weight: bold; font-size: large;">
+                            Why we make this
+                        </a>
+                    </el-col>
+                  </el-row>
+    
+                  <el-row>
+                    <el-col :offset="6">
+                        <p>
+                            The outbreak of COVID-19 in late 2019
+                            may have profoundly changed human history forever.
+                        </p>
+                        <p>
+                            However, its greatest danger lies not in death,
+                            but in the trend of dividing human society into isolated islands.
+                        </p>
+                        <p>
+                            We want to use the internet to stop this trend,
+                            and help people beat the COVID-19 epidemic faster.
+                        </p>
+                    </el-col>
+                </el-row>
+
+                <el-row>
+                    <el-col :offset="6">
+                        <a style="color: #F56C6C;font-weight: bold; font-size: large;">
+                            What is our aim
+                        </a>
+                    </el-col>
+                  </el-row>
+    
+                  <el-row>
+                    <el-col :offset="6">
+                        <p>
+                            Providing people with accurate knowledge of COVID-19 protection.
+                        </p>
+                        <p>
+                            Providing people with timely information on COVID-19.
+                        </p>
+                        <p>
+                            Collecting as many scientific papers as possible about COVID-19.
+                        </p>
+                    </el-col>
+                </el-row>
+
             </div>
         </transition>
 
