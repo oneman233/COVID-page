@@ -69,7 +69,7 @@
                 About
             </el-menu-item>
 
-            <el-link type="info" disabled="true"
+            <el-link type="info" disabled="true" icon="el-icon-timer"
             style="margin-left: auto;margin-right: 20px;">{{ date }}</el-link>
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -120,7 +120,7 @@
 
                     <el-divider content-position="right">
                         <a style="color: #909399;">
-                            Designed & Produced by us
+                            Designed & Produced by Chendong Tian
                         </a>
                     </el-divider>
 
@@ -142,7 +142,7 @@
                             <el-image style="width: 514px;height: 726px;"
                             src="C:\\Users\\oneman233\\Desktop\\COVID19\\advice_3.jpg"></el-image>
                         </el-carousel-item>
-                        <el-carousel-item style="box-shadow: 0 2px 4px rgba(0,0,0,0.12),0 0 6px rgba(0,0,0,0.04);
+                        <!-- <el-carousel-item style="box-shadow: 0 2px 4px rgba(0,0,0,0.12),0 0 6px rgba(0,0,0,0.04);
                         border-radius: 20px;">
                             <el-image style="width: 514px;height: 726px;"
                             src="C:\\Users\\oneman233\\Desktop\\COVID19\\advice_4.jpg"></el-image>
@@ -151,7 +151,7 @@
                         border-radius: 20px;">
                             <el-image style="width: 514px;height: 726px;"
                             src="C:\\Users\\oneman233\\Desktop\\COVID19\\advice_5.jpg"></el-image>
-                        </el-carousel-item>
+                        </el-carousel-item> -->
                     </el-carousel>
                 </div>
             </transition>
@@ -208,7 +208,7 @@
                     </p>
 
                     <div style=
-                    "width: 1300;height:760;
+                    "width: 1300;height:785;
                     box-shadow: 0 2px 4px rgba(0,0,0,0.12),0 0 6px rgba(0,0,0,0.04);
                     border-radius: 20px;
                     margin: auto;
@@ -288,12 +288,70 @@
                         <p>
                             We are a team from Southeast University,
                             hoping to make small contributions to the future of humanity.
-        
-                            <!-- 成员信息 -->
-        
                         </p>
+
+                        <!-- 成员信息 -->
+
+                        <a>
+                            <el-avatar :size="50" src="C:\\Users\\oneman233\\Desktop\\COVID19\\avatar\\tianchengdong.bmp"></el-avatar>
+                            Chendong Tian: 
+                        </a>
+                        <i>Best Graphic Designer</i>
+
+                        &nbsp;
+
+                        <a>
+                            <el-avatar :size="50" src="C:\\Users\\oneman233\\Desktop\\COVID19\\avatar\\denghaoran.jpg"></el-avatar>
+                            Haoran Deng: 
+                        </a>
+                        <i>Crazy About Cats</i>
+
+                        <br>
+
+                        <a>
+                            <el-avatar :size="50" src="C:\\Users\\oneman233\\Desktop\\COVID19\\avatar\\lichen.bmp"></el-avatar>
+                            Chen Li: 
+                        </a>
+                        <i>Heavenly Voice</i>
+
+                        &nbsp;
+
+                        <a>
+                            <el-avatar :size="50" src="C:\\Users\\oneman233\\Desktop\\COVID19\\avatar\\lihanyue.bmp"></el-avatar>
+                            Hanyue Li: 
+                        </a>
+                        <i>Oscar Queen</i>
+
+                        &nbsp;
+
+                        <a>
+                            <el-avatar :size="50" src="C:\\Users\\oneman233\\Desktop\\COVID19\\avatar\\wangyan.bmp"></el-avatar>
+                            Yan Wang: 
+                        </a>
+                        <i>Crazier About Cats</i>
+
+                        <br>
+
+                        <a>
+                            <el-avatar :size="50" src="C:\\Users\\oneman233\\Desktop\\COVID19\\avatar\\heran.bmp"></el-avatar>
+                            Ran He: 
+                        </a>
+                        <i>Won Nobel Prize In Literature</i>
+
+                        &nbsp;
+
+                        <a>
+                            <el-avatar :size="50" src="C:\\Users\\oneman233\\Desktop\\COVID19\\avatar\\penghaochao.bmp"></el-avatar>
+                            Haochao Peng: 
+                        </a>
+                        <i>Making our video understandable</i>
+
+                        &nbsp;
+
                     </el-col>
                 </el-row>
+
+                <br>
 
                 <el-row>
                     <el-col :offset="6">
@@ -305,22 +363,32 @@
     
                   <el-row>
                     <el-col :offset="6">
+
                         <p>
-                            The outbreak of COVID-19 in late 2019
-                            may have profoundly changed human history forever.
+                            <b>
+                                The outbreak of COVID-19 in late 2019
+                                have profoundly changed human history forever.
+                            </b>
                         </p>
+
                         <p>
-                            However, its greatest danger lies not in death,
-                            but in the trend of dividing human society into isolated islands.
+                            <b>
+                                However, its greatest danger lies not in death,
+                                but in the trend of dividing human society into isolated islands.
+                            </b>
                         </p>
+
                         <p>
-                            We want to use the internet to stop this trend,
-                            and help people beat the COVID-19 epidemic faster.
+                            <b>
+                                We want to use the internet to stop this trend,
+                                and help people beat the COVID-19 epidemic faster.
+                            </b>
                         </p>
+
                     </el-col>
                 </el-row>
 
-                <el-row>
+                <!-- <el-row>
                     <el-col :offset="6">
                         <a style="color: #F56C6C;font-weight: bold; font-size: large;">
                             What is our aim
@@ -340,6 +408,28 @@
                             Collecting as many scientific papers as possible about COVID-19.
                         </p>
                     </el-col>
+                </el-row> -->
+
+                <el-row>
+                    <el-col :offset="6">
+                        <a style="color: #F56C6C;font-weight: bold; font-size: large;">
+                            Please rate us!
+                        </a>
+                    </el-col>
+                  </el-row>
+
+                <br>
+
+                <el-row>
+                    <el-col :offset="6">
+                        <!-- 评分框，并且显示指示性文字 -->
+                        <el-rate
+                        v-model="rate"
+                        :texts="['oops', 'disappointed', 'normal', 'good', 'great']"
+                        show-text
+                        >
+                        </el-rate>
+                    </el-col>
                 </el-row>
 
             </div>
@@ -358,6 +448,7 @@
                 date: new Date().toString().slice(0, -18), // 当前时间
                 news: {},   // 新冠相关新闻,
                 papers: {}, // 新冠论文
+                rate: 0,    // 评分
             }
         },
         mounted() {
